@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="stylesheet" href="">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <p>Hello world! This is HTML5 Boilerplate.</p>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+async function getTei() {
+  const res = await axios.get('./text.tei') 
+  console.log(res)
+
+  const raw = res.data 
+  const parser = new DOMParser()
+  const dom = parser.parseFromString(raw, 'application/xml')
+  console.log(dom)
+}
+
+getTei()
+
+</script>
+</body>
+
+</html>
